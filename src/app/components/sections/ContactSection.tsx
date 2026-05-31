@@ -2,6 +2,7 @@ import { FadeIn } from "@/app/components/common/FadeIn";
 import { SectionHeading } from "@/app/components/common/SectionHeading";
 
 const CONTACT_EMAIL = "hello@sof7.io";
+const CONTACT_PHONE = "+48 786 239 026";
 
 export function ContactSection() {
   return (
@@ -21,7 +22,18 @@ export function ContactSection() {
             >
               {CONTACT_EMAIL}
             </a>
+          
           </div>
+          <div className="space-y-4">
+          <a
+              href={`tel:${CONTACT_PHONE}`}
+              className="inline-block text-xl text-black/60 hover:text-black transition-colors"
+            >
+              {CONTACT_PHONE}
+            </a>
+          
+          </div>
+          
         </FadeIn>
       </div>
     </section>
