@@ -1,27 +1,23 @@
 import { useEffect } from "react";
 
-const SENJA_SCRIPT_SRC = "https://static.senja.io/dist/platform.js";
+function getSenjaScriptUrl(widgetId: string): string {
+  return `https://widget.senja.io/widget/${widgetId}/platform.js`;
+}
 
-let isScriptLoaded = false;
-
-export function useSenjaScript(): void {
+export function useSenjaScript(widgetId: string | undefined): void {
   useEffect(() => {
-    if (isScriptLoaded) return;
+    if (!widgetId) return;
 
+    const scriptUrl = getSenjaScriptUrl(widgetId);
     const existingScript = document.querySelector<HTMLScriptElement>(
-      `script[src="${SENJA_SCRIPT_SRC}"]`,
+      `script[src="${scriptUrl}"]`,
     );
-    if (existingScript) {
-      isScriptLoaded = true;
-      return;
-    }
+    if (existingScript) return;
 
     const script = document.createElement("script");
-    script.src = SENJA_SCRIPT_SRC;
+    script.src = scriptUrl;
     script.async = true;
-    script.onload = () => {
-      isScriptLoaded = true;
-    };
+    script.type = "text/javascript";
     document.body.appendChild(script);
-  }, []);
+  }, [widgetId]);
 }
