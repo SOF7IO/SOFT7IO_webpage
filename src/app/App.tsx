@@ -6,6 +6,7 @@ import { ContactSection } from "@/app/components/sections/ContactSection";
 import { HeroSection } from "@/app/components/sections/HeroSection";
 import { ServicesSection } from "@/app/components/sections/ServicesSection";
 import { TechStackSection } from "@/app/components/sections/TechStackSection";
+import { SenjaWidget } from "@/app/components/senja/SenjaWidget";
 
 export default function App() {
   return (
@@ -18,6 +19,7 @@ export default function App() {
       <TechStackSection />
       <ContactSection />
       <Footer />
+      <SenjaWidget />
     </div>
   );
 }

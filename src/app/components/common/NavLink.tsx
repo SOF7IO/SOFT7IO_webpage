@@ -1,3 +1,6 @@
+import type { MouseEvent } from "react";
+import { handleAnchorClick } from "@/app/utils/scrollToSection";
+
 type NavLinkProps = {
   readonly href: string;
   readonly label: string;
@@ -11,8 +14,12 @@ const variantClasses: Record<NonNullable<NavLinkProps["variant"]>, string> = {
 };
 
 export function NavLink({ href, label, onClick, variant = "desktop" }: NavLinkProps) {
+  const onLinkClick = (event: MouseEvent<HTMLAnchorElement>) => {
+    handleAnchorClick(event, href, onClick);
+  };
+
   return (
-    <a href={href} className={variantClasses[variant]} onClick={onClick}>
+    <a href={href} className={variantClasses[variant]} onClick={onLinkClick}>
       {label}
     </a>
   );
