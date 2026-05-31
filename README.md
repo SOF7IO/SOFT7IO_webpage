@@ -1,5 +1,5 @@
 
-  # Sof7.io website.
+  # Sof7.io website
 
   ## Running the code
 
